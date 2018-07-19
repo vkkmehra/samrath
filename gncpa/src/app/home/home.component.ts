@@ -21,6 +21,15 @@ export class HomeComponent implements OnInit {
       }
       });
     });    
+
+    $(window).click(function(){
+      $('.flexslider').flexslider({
+      animation: "slide",
+      start: function(slider){
+        $('body').removeClass('loading');
+      }
+      });
+    });        
   }
 
 }
