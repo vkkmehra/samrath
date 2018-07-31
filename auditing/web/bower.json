@@ -1,0 +1,46 @@
+{
+  "name": "Teams_v2",
+  "description": "This is the angular version of FElib",
+  "main": "index.js",
+  "authors": [
+    "Rohit Chopra <rohitchopra00@ymail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-material": "1.1.1",
+    "angular-messages": "1.5.8",
+    "angular-sanitize": "1.5.8",
+    "angular-toastr": "^2.1.1",
+    "angular-translate": "^2.15.1",
+    "angular-translate-loader-url": "^2.13.0",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",    
+    "font-awesome": "^4.7.0",
+    "angular-loading-bar": "^0.9.0"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css"
+      ]
+    }
+  }
+}

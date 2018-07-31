@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html data-ng-app="gnc1" data-ng-controller="gnc_Ctrl">
+<head>
+
+    <title>{{PageName}} - {{RecordDescription}}</title>
+     <meta charset="utf-8">
+    <!-- inject:css -->
+    
+   
+    <!-- endinject -->
+</head>
+
+<body >    
+    <!-- Top header of the page, containing logo, logout button and global search -->
+    <header class="container-fluid headerRow">
+        <div class="row well-sm white" id="headerRow">
+            <div class="col-xs-4 col-sm-2 col-md-1">
+                <img class="logo" src="img/RTO-Software-Logo.png" />
+            </div>
+            <div ng-show="PageName!='Login'" class="col-xs-8 col-sm-10 col-md-11 searchbar">
+                <button class="btn btn-default pull-right fa fa-sign-out" data-ng-click="logOut()" title="Sign-Out"></button>
+
+                <ul class="header-dropdown-list">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">                             
+                            <fe-lib-avatar-icon object-code="user_name" image-url="{{userImage}}" gender="vm.user.gender" size="xsmall"></fe-lib-avatar-icon> <span style="float:right; margin-top:-42px; margin-left:35px;"><i class="fa fa-caret-down"></i></span>
+                        </a>
+                        <ul class="dropdown-menu user-profile pull-right">
+                            <li >
+                                <a data-ng-click="showProfile()"><i class="fa fa-eye"></i> View Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li >
+                                <a data-ng-click="showProfile()"><i class="fa fa-pencil"></i> Edit My Details </a>
+                            </li>
+                            <li >
+                                <a href="javascript:void(0);"><i class="fa fa-tasks"></i> My Tasks </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li >
+                                <a data-ng-click="logOut()"><i class="fa fa-sign-out"></i> Logout </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+
+                <button ng-hide="PageName == 'Dashboard'" class="btn btn-default pull-right fa fa-dashboard" data-ng-click="dashboard()" title="Dashboard"></button>
+                
+                <fe-lib-search class="pull-right"></fe-lib-search>
+              
+            </div>
+        </div>
+    </header>
+    <!-- Top ribbon containing save and cancel buttons -->
+    <section>
+        <div class="col-xs-12 fe-lib-ribbon top-ribbon ribbonRow" id="ribbonRow" data-ng-show="PageName!='Login'">
+            <!-- breadcrumb -->
+            <div class="pull-left fa menu-toggle" data-ng-class="{'fa-arrow-circle-down':!menuCollapsed, 'fa-bars': menuCollapsed}" data-ng-click="menuCollapsed = !menuCollapsed"></div>
+            
+            <div class="pull-left">{{PageName}} {{ObjectName}}</div>            
+            <div class="pull-right" ng-show="Menus.length > 0">
+                <md-menu class="pull-right" ng-if="!showActionIcons">
+                    <span class="fa fa-ellipsis-v" data-ng-click="$mdOpenMenu($event)"></span>
+                    <md-menu-content>
+                        <md-menu-item data-ng-repeat="menu in Menus">
+                            <md-button data-ng-click="menu.action()">
+                                <i class="{{menu.icon}}" md-menu-align-target></i>
+                                    <fe-lib-label translate="{{menu.label}}"></fe-lib-label>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                
+                <md-button class="pull-right md-fab md-raised md-mini" data-ng-repeat="menu in Menus" ng-if="showActionIcons" title="{{menu.label}}" data-ng-click="menu.action()" aria-label="Use Android">
+                  <i class="{{menu.icon}}"></i>
+                </md-button>                                    
+            </div>
+
+            <fe-lib-button 
+                class="md-raised pull-right" data-ng-show="canCancel" 
+                icon="fa fa-arrow-circle-o-left" data-ng-click="back()" translate="GlobalObjects.btnCancel"></fe-lib-button>
+            <fe-lib-button class="md-raised pull-right" data-ng-show="showBackButton"
+                icon="fa fa-arrow-circle-o-left" data-ng-click="back()"
+                translate="GlobalObjects.btnBack"></fe-lib-button>
+
+            <fe-lib-button class="pull-right md-primary md-raised" data-ng-show="canSave" icon="fa fa-floppy-o" data-ng-click="save()" translate="GlobalObjects.btnSave"></fe-lib-button>
+
+        </div>
+    </section>
+
+    <!-- Content section, including menu and the actual content -->
+    <section class="content" ng-class="{'menuCollapsed':menuCollapsed,'menuVisible':!menuCollapsed}">
+        <div class="content-container">
+            <!-- Menu -->
+            <aside data-ng-init="menuCollapsed = true">
+                <nav>
+                    <ul>
+                        <li data-ng-repeat="menu in userMenu">                            
+                            <a data-ng-click="menuopen(menu)">                                
+                                <i data-ng-class="menu.menu_icon"></i>
+                                <fe-lib-label 
+                                    class="menu-item-parent"
+                                    translate="{{menu.menu_name_key}}">
+                                </fe-lib-label>
+                            </a>
+
+                            <!--                             
+                            <ul>
+                                <li data-ng-repeat="childMenu in menu.childMenu">
+                                    <a data-ng-click="menuopen(childMenu)">
+                                        <i data-ng-class="childMenu.menu_icon" ></i>
+                                        <fe-lib-label                                             
+                                            translate="{{childMenu.menu_name_key}}">
+                                        </fe-lib-label> 
+                                    </a>
+
+                                    <ul ng-if="childMenu.childMenu.length>0">
+                                        <li data-ng-repeat="subChild in childMenu.childMenu">
+                                            <a data-ng-click="menuopen(subChild)">
+                                                <i data-ng-class="subChild.menu_icon" ></i>
+                                                <fe-lib-label                                      
+                                                    translate="{{subChild.menu_name_key}}">
+                                                </fe-lib-label> 
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </nav>
+            </aside>            
+            <!-- Actual content -->
+            <!-- Help Section -->
+            <div class="container-fluid" >
+                    <div class="row">
+                        
+                        <div data-ng-class="{'col-sm-12 col-xs-12 col-md-12': !HelpLinks.Flag, 'col-sm-9 col-xs-9 col-md-9': HelpLinks.Flag}" style="position:relative;top:10px;left:0px;">
+                            <ui-view class="col-xs-12"></ui-view>    
+                        </div>   
+                        <div class="col-xs-3 col-sm-3 col-md-3" data-ng-if="HelpLinks.Flag" style="position:fixed; right:-10px; border-left:1px thin black;background-color: #f0f0f0;height:100%;">                
+                            <div  data-ng-repeat="links in HelpLinks">          
+                                
+                                <div class="row mt-10">
+                                    <div data-ng-if="links.img_path" data-ng-class="{'col-xs-12 col-sm-4': links.img_path, 'col-xs-12 col-sm-12': !links.img_path}">
+                                        <img class="img-responsives" src="./img/helpLinks/{{links.img_path}}">
+                                    </div>
+
+                                    <div data-ng-class="{'col-xs-12 col-sm-6 col-sm-offset-1': links.img_path, 'col-xs-12 col-sm-12': !links.img_path}">
+                                        <a href="{{links.link_source}}" target="_blank"><fe-lib-label xlarge bold>{{links.link_heading}}</fe-lib-label></a><br/> <fe-lib-label block>{{links.link_description}}</fe-lib-label>
+                                    </div>
+                                </div>
+                            
+                                <div class="row mt-10">
+                                    <span class="ml-10" data-ng-if="links.type_of_link == helpCLinks.html">
+                                        <a href="{{links.link_source}}" target="_blank"><i class="fa fa-wikipedia-w fa-2x"></i></a>  
+                                    </span>                          
+
+                                    <span class="ml-10" data-ng-if="links.type_of_link == helpCLinks.viemoLink">
+                                        <a href="{{links.link_source}}" target="_blank"><i class="fa fa-vimeo fa-2x"></i></a>  
+                                    </span>
+                                  
+                                    <span class="ml-10" data-ng-if="links.type_of_link == helpCLinks.outsideLink">
+                                        <a href="{{links.link_source}}" target="_blank"><i class="fa fa-opera fa-2x"></i></a>
+                                    </span>
+                                  
+                                    <span class="ml-10" data-ng-if="links.type_of_link == helpCLinks.internalHelpFile">
+                                        <a href="{{links.link_source}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
+                                    </span>                                 
+                                </div>
+                                <div class="row">
+                                    <hr class="hr">
+                                </div>
+                            </div>
+
+                        </div> 
+                    </div>
+            </div>
+            <!-- Help Section -->
+            
+        </div>
+        <!--  -->        
+        <div class="modal fade tour-modal-fade" tabindex="-1" role="dialog"></div>
+        <!-- Logout modal window -->
+        <fe-lib-modal id="logoutWindow" translate-string="Logout.pnlLogout">
+            <div class="row ml-10">
+                <fe-lib-label bold warn block large translate=Logout.mgsLogout></fe-lib-label>               
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <fe-lib-button class="md-raised md-primary pull-right"
+                             data-ng-click="userLogout()"
+                             translate="GlobalObjects.btnYes">
+                    </fe-lib-button>
+                    <fe-lib-button class="md-raised pull-right"
+                             data-ng-click="cancelwindow()"
+                             translate="GlobalObjects.btnNo">
+                    </fe-lib-button>
+                </div>
+            </div>
+        </fe-lib-modal>
+        <!-- Logout modal window -->
+     
+    </section>
+    <!-- inject:js -->
+    
+    
+    <!-- endinject -->
+
+    <script>
+        function initApp() {
+            angular.bootstrap(document.getElementById("html"), ['gnc1']);
+        }
+    </script>
+
+</body>
+
+</html>

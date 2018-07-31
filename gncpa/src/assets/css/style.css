@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-html, body{
+html, body{.w3ls_banner_section h3
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
 	background:#ffffff;
@@ -194,11 +194,12 @@ div#myNavbar {
 .w3layouts-banner{
     background: url(../images/banner.jpg) no-repeat 0px 0px;
     background-size: cover;
+    background-position: top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
-    min-height: 650px;
+    min-height: 500px;
     position: relative;
 }
 .w3ls_banner_section{
@@ -216,16 +217,16 @@ div#myNavbar {
 	text-align: center;
 }
 .w3ls_banner_section h3{
-       color: #fff;
+       color: #0d3172;
     text-transform: uppercase;
       font-size: 2.4em;
     letter-spacing: 3px;
 }
 .w3ls_banner_section h3 span{
-	color:#f6da08;
+	color:#0098FD;
 }
 .w3ls_banner_section p {
-    color: #fff;
+    color: #0d3172;
     line-height: 1.5em;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -284,7 +285,7 @@ div#myNavbar {
 }
 /*-- banner-bottom --*/
 .banner-bottom{
-	padding:5em 0;
+	padding:1em 0;
 }
 .w3l_banner_bottom_left p{
 	       margin: 2em 0 0;
@@ -347,7 +348,7 @@ p.sub:after {
     margin-top: 4em;
 }
 .services{
-	padding:5em 0;
+	padding:2em 0;
 }
 h3.h-two {
     color: #000000;
@@ -449,7 +450,7 @@ p.sub.two{
 /*-- //services --*/
 /*-- team --*/
 .team{
-	padding:5em 0;
+	padding:0 0;
 }
 /* entire container, keeps perspective */
 .flip-container {
@@ -620,7 +621,7 @@ p.sub.two{
 	background: #1da1f2;
 	color: #FFFFFF;
 }
-.w3l-social ul li a i.fa.fa-rss{
+.w3l-social ul li a i.fa.fa-linkedin{
 	height: 40px;
     width: 40px;
     background: #FFFFFF;
@@ -637,8 +638,8 @@ p.sub.two{
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;	
 }
-.w3l-social ul li a i.fa.fa-rss:hover{
-	background: #f26522;
+.w3l-social ul li a i.fa.fa-linkedin:hover{
+	background: #fcc2d7;
 	color: #FFFFFF;
 }
 .agile-team-grids {
@@ -1452,7 +1453,7 @@ input.email {
 	border: none;
 } 
 .contact {
-    padding: 5em 0;
+    padding: 0 0;
 }
 /*-- //contact --*/
 /*-- projects --*/
@@ -1562,6 +1563,13 @@ input.email {
 	line-height:2em;
 	margin:1em 0 2em;
 }
+
+.team-grid p{
+    color: #999;
+    line-height: 2em;
+    margin: 1em 0 2em;
+    text-align: justify;    
+}
 .w3layouts_more{
 	margin:2em 0 0;
 	text-align:center;
@@ -1631,7 +1639,7 @@ input.email {
     color: #fff;
 }
 .offer {
-    background: url(assets/images/services.jpg) no-repeat 0px 0px;
+    background: url(../images/services.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1767,7 +1775,7 @@ input.email {
     background: #0d3172;
 }
 .banner-bottom {
-    padding: 5em 0;
+    padding: 1em 0;
 }
 /*-- //offer-bottom --*/
 /*-- /Responsive--*/
@@ -1800,7 +1808,7 @@ input.email {
 }
 @media (max-width:1080px){
 .w3layouts-banner {
-    min-height: 500px;
+    min-height: 350px;
 }
 .w3ls_banner_section {
     padding: 11em 0 2em;
@@ -1845,7 +1853,7 @@ input.email {
     width: 80%;
 }
 .w3layouts-banner {
-    min-height: 440px;
+    min-height: 300px;
 }
 .w3l_banner_bottom_right img {
     width: 100%;
@@ -1855,13 +1863,13 @@ input.email {
     width: 50%;
 }
 .services {
-    padding: 3em 0;
+    padding: 1em 0;
 }
 .w3layouts-grids {
     margin-top: 3em;
 }
 .team {
-    padding: 3em 0 1em;
+    padding: 0 0 1em;
 }
 .team-grid {
     float: left;
@@ -1905,7 +1913,7 @@ input.email {
     padding: 3em 0;
 }
 .contact {
-    padding: 3em 0;
+    padding: 0 0;
 }
 .contact-left {
     margin-top: 2em;
@@ -1917,7 +1925,7 @@ input.email {
     min-height: 220px;
 }
 .banner-bottom {
-    padding: 3em 0 1em;
+    padding: 1em 0 1em;
 }
 .w3ls_banner_bottom_grids {
     margin-top: 3em;
@@ -2023,7 +2031,7 @@ div#myNavbar {
     padding: 8em 0 2em;
 }
 .w3layouts-banner {
-    min-height: 380px;
+    min-height: 260px;
 }
 .flip-container, .back {
     height: 329px;
@@ -2105,7 +2113,7 @@ div#myNavbar {
     padding: 6em 0 2em;
 }
 .w3layouts-banner {
-    min-height: 345px;
+    min-height: 220px;
 }
 .testimonials-left-w3 {
     min-height: 303px;
@@ -2149,7 +2157,7 @@ div#myNavbar {
     margin: 19px auto 0;
 }
 .w3layouts-banner {
-    min-height: 320px;
+    min-height: 200px;
 }
 .w3ls_banner_section {
     padding: 5em 0 2em;
@@ -2214,10 +2222,10 @@ div#myNavbar {
     margin: 2em 0 0;
 }
 .w3layouts-banner {
-    min-height: 260px;
+    min-height: 160px;
 }
 .services {
-    padding: 2em 0;
+    padding: 1em 0;
 }
 .w3ls-heading h3, .w3ls-heading h2 {
     font-size: 1.7em;
@@ -2235,7 +2243,7 @@ div#myNavbar {
     font-size: 1em;
 }
 .team {
-    padding: 2em 0 1em;
+    padding: 0 0 1em;
 }
 .agile-team-grids {
     margin-top: 2em;
@@ -2313,7 +2321,7 @@ div#myNavbar {
     padding: 2em 0;
 }
 .contact {
-    padding: 2em 0;
+    padding: 0 0;
 }
 .contact-agileinfo {
     margin-top: 2em;
@@ -2331,7 +2339,7 @@ div#myNavbar {
     min-height: 110px;
 }
 .banner-bottom {
-    padding: 2em 0 1em;
+    padding: 1em 0 1em;
 }
 .w3ls_banner_bottom_grids {
     margin-top: 2em;

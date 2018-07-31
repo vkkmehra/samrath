@@ -8,6 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicesComponent } from './services/services.component';
+import { TeamComponent } from './team/team.component';
+import { ContactComponent } from './contact/contact.component';
+import { LinksComponent } from './links/links.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { ServicesComponent } from './services/services.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ServicesComponent
+    ServicesComponent,
+    TeamComponent,
+    ContactComponent,
+    LinksComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,18 @@ import { ServicesComponent } from './services/services.component';
       {
         path: 'services',
         component: ServicesComponent
+      },
+      {
+        path: 'team',
+        component: TeamComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path:'links',
+        component: LinksComponent
       }
     ])  
   ],

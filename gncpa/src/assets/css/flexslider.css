@@ -80,7 +80,7 @@ html[xmlns] .slides {display: block;}
     position: absolute;
     left: 46%;
     margin-left: 0px;
-    bottom: -40%;
+    bottom: -20%;
 }
 .flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
 .flex-control-paging li a {
@@ -92,7 +92,7 @@ html[xmlns] .slides {display: block;}
     text-indent: -9999px;
 }
 .flex-control-paging li a.flex-active { 
-	background:#f6da08;
+	background:#0098FD;
     cursor: default;
 }
 .flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
@@ -134,7 +134,7 @@ html[xmlns] .slides {display: block;}
 @media screen and (max-width:991px) {
 	.flex-control-nav {
 		left: 44%;
-		bottom: -19%;
+		bottom: 0%;
 	}
 }
 @media screen and (max-width: 768px) {
@@ -144,14 +144,14 @@ html[xmlns] .slides {display: block;}
 	}
 
 	.flex-control-nav {
-		bottom: -18%;
+		bottom: 0%;
 	}
 }
 @media screen and (max-width: 640px) {
 }
 @media screen and (max-width: 568px) {
 .flex-control-nav {
-    bottom: -23%;
+    bottom: -3%;
 }
 }
 @media screen and (max-width: 480px) {
@@ -163,19 +163,19 @@ html[xmlns] .slides {display: block;}
 	}
 	.flex-control-nav {
     left: 40%;
-    bottom: -10%;
+    bottom: 1%;
 }
 }
 @media screen and (max-width: 414px) {
 	.flex-control-nav {
-		bottom: -11%;
+		bottom: 1%;
 		left: 41%;
 	}
 	
 }
 @media screen and (max-width: 384px){
 	.flex-control-nav {
-    bottom: -14%;
+    bottom: 0%;
     left: 41%;
 }
 }
@@ -186,7 +186,7 @@ html[xmlns] .slides {display: block;}
 		padding-top: 0%;
 	}
 	.flex-control-nav {
-    bottom: -15%;
+    bottom: 1%;
     left: 40%;
 }
 }
